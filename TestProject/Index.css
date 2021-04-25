@@ -1,0 +1,48 @@
+﻿ul, #fileSystem {
+    list-style-type: none;
+}
+
+#fileSystem {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin-top: 5px;
+}
+
+button {
+    margin-left: 5px;
+}
+
+.caret {
+    cursor: pointer;
+    user-select: none;
+}
+
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.selected-folder {
+    background-color: yellow;
+}
+
+#folder {
+    width: 400px;
+}

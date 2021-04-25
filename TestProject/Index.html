@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Index.css" />
+    <script src="State.js"></script>
+    <script src="Handlers.js"></script>
+    <script src="Index.js"></script>
+</head>
+<body>
+    <h2 id="fileSystemTitle"></h2>
+    <input type="text" id="filter" /><button id="filterButton" onclick="performFilter()">Filter</button>
+    <br />
+    <ul id="fileSystem">
+    </ul>
+    <br />
+    <hr />
+    <p>To create a new folder, select a folder in the tree above, then enter the new folder name below, name cannot inclue characters <>:"/\|?*</p>
+    <div>
+        <label>
+            Destination Folder:
+        </label>
+        <input id="newFolderDestination" class="selected-folder-input" name="folder" type="text" readonly />
+    </div>
+    <div>
+        <label>
+            New Folder:
+        </label>
+        <input id="newFolder" name="newFolder" type="text" />
+    </div>
+    <div>
+        <button id="createNewFolder" onclick="createNewFolder()">Create New Folder</button>
+    </div>
+    <br />
+    <hr />
+    <form name="uploadForm" method="post" action="api/FileSystem" enctype="multipart/form-data">
+        <p>Select a folder in the tree above, then select a file to upload to that folder</p>
+        <div>
+            <label>
+                Browse File:
+            </label>
+            <input id="file" name="file" type="file" />
+            <br />
+            <br />
+            <label>
+                Folder:
+            </label>
+            <input id="folder" class="selected-folder-input" name="folder" type="text" readonly />
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Upload" />
+        </div>
+    </form>
+</body>
+</html>
