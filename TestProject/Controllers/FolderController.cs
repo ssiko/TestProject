@@ -12,6 +12,7 @@ namespace TestProject.Controllers
 {
     public class FolderController : ApiController
     {
+        private const string _invalidChars = @"<>:""/\|?*";
         private FolderService _service { get; set; }
         public FolderController()
         {
@@ -19,10 +20,12 @@ namespace TestProject.Controllers
         }
         public HttpResponseMessage Post([FromUri] string relativePath, [FromUri]string folderName)
         {            
-            Regex containsABadCharacter = new Regex("[" + Regex.Escape(Path.GetInvalidPathChars().ToString()) + "]");
-            if (containsABadCharacter.IsMatch(folderName))
+            foreach (char c in _invalidChars)
             {
-                return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                if (folderName.Contains(c))
+                {
+                    return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                }
             }
             _service.CreateFolder(relativePath, folderName);
             return new HttpResponseMessage(HttpStatusCode.OK);            

@@ -25,6 +25,14 @@ namespace TestProject.Services
             return fsm;
         }
 
+        public FileSystemModel GetFileSystem()
+        {
+            DirectoryInfo di = new DirectoryInfo(_rootPath);
+            var fsm = CreateInitialModel(di);
+            PopulateFileSystem(di, fsm);
+            return fsm;
+        }
+
         private FileSystemModel CreateInitialModel(DirectoryInfo di)
         {            
             var fsm = new FileSystemModel
@@ -82,14 +90,6 @@ namespace TestProject.Services
                     FilterFileSystem(filter, folder, folderModel);
                 }                
             }
-        }
-
-        public FileSystemModel GetFileSystem()
-        {
-            DirectoryInfo di = new DirectoryInfo(_rootPath);
-            var fsm = CreateInitialModel(di);
-            PopulateFileSystem(di, fsm);
-            return fsm;
         }
 
         private void PopulateFileSystem(DirectoryInfo di, FileSystemModel fsm)

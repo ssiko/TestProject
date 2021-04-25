@@ -19,7 +19,6 @@ namespace TestProject.Controllers
         {
             _service = new FileSystemService();
         }
-        // GET: api/FileSystem
         public JsonResult<FileSystemModel> Get()
         {
             return Json(_service.GetFileSystem());

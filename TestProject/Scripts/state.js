@@ -9,8 +9,7 @@ async function getStateFromHash() {
     var pairs = location.hash.slice(1).split('&');
     pairs.forEach(function (pair) {
         pair = pair.split('=');
-        if (pair[0]) {  
-            console.log(pair);
+        if (pair[0]) {              
             state[pair[0]] = decodeURIComponent(pair[1] || '');
         }
     });

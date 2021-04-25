@@ -96,11 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Handlers.js" />
+    <Content Include="Scripts\Handlers.js" />
     <Content Include="Index.html" />
-    <Content Include="Index.js" />
-    <Content Include="Index.css" />
-    <Content Include="State.js" />
+    <Content Include="Scripts\Index.js" />
+    <Content Include="Styles\Index.css" />
+    <Content Include="Scripts\State.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,7 +111,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\FileSystemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\FileService.cs" />
